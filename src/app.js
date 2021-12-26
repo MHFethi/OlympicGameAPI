@@ -1,19 +1,17 @@
 // Import dependencies that we need
 const express = require('express');
-// Import mongoose framework
-const mongoose = require('mongoose');
+// Import mongoose framework for db connexion
+const {connect} = require('mongoose');
 // Body parser is a middleware which held to tidy up the request object before we use them
 const bodyParser= require('body-parser')
 // Morgan allow to log HTTP requests and error, and simplifies the process
 const morgan = require('morgan');
 // Import user-route to get all HTTP method from the controller
 const userRoute = require('./routes/user-route')
-const {connect} = require("mongoose");
-const e = require("express");
 // Build the application that it'll use to create our routes
 const app = express();
 // Import environnement variable for configuration
-require('dotenv').config()
+require('dotenv').config({path:'../.env'})
 
 // Load Morgan middleware for HTTP logs
 app.use(morgan('tiny'));
@@ -30,6 +28,7 @@ connect(process.env.ATLAS_URI,
         console.log('Successfully connect to the database  !');
     })
     .catch(() => {
+        console.log('Connection to the database failed !');
         console.log(process.env.DB_USER);
     });
 
