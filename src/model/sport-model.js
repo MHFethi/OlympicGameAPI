@@ -1,15 +1,6 @@
 const mongoose = require('mongoose');
 const AutoIncrement = require('mongoose-sequence')(mongoose);
 
-/*
-const SportSchema = new mongoose.Schema({
-    sportName : { type: String },
-    athletes: [{
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'Athlete'
-    }]
-},{ versionKey:false });
- */
 const SportSchema = new mongoose.Schema({
     sportName : { type: String },
 },{ versionKey:false });
