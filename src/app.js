@@ -6,11 +6,13 @@ const {connect} = require('mongoose');
 const bodyParser= require('body-parser')
 // Morgan allow to log HTTP requests and error, and simplifies the process
 const morgan = require('morgan');
-// Import user-route to get all HTTP method from the controller
+// Import all route to get all HTTP method from the controller
 const userRoute = require('./routes/user-route')
 
 const sportRoute = require('./routes/sport-route');
 const athleteRoute = require('./routes/athlete-route');
+const authRoute = require('./routes/auth-route')
+
 // Build the application that it'll use to create our routes
 const app = express();
 // Import environnement variable for configuration
@@ -35,7 +37,6 @@ connect(process.env.ATLAS_URI,
         console.log(process.env.DB_USER);
     });
 
-
 /*
 * Header setup (CORS)
 *
@@ -58,8 +59,12 @@ app.get('/api',(req,res) => {
     console.log("API is running");
 })
 // Load the UserRoute middleware with the URL 'api/user' specified in the 'user-route.js'
-app.use('/api',userRoute);
 app.use('/api',sportRoute);
 app.use('/api',athleteRoute)
+// Load the routes middleware with the right URL specified in the route files
+app.use('/api', authRoute);
+app.use('/api/users',userRoute);
+
+
 module.exports = app;
 

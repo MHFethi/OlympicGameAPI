@@ -1,6 +1,7 @@
 const User = require('../model/user-model');
 const {hashPassword} = require("../utils/utils");
 
+
 /**
  * Get all Users from database
  * @param req
@@ -30,7 +31,6 @@ const getUserById = async (req, res) => {
             res.status(404)
             throw new Error("No user found");
         }
-
         return res.status(200).json({ user });
     } catch (error) {
         return res.status(500).send(error.message);
@@ -129,5 +129,5 @@ module.exports = {
     getUserById,
     getAll,
     updateUser,
-    deleteUser
+    deleteUser,
 }
