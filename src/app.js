@@ -8,10 +8,13 @@ const bodyParser= require('body-parser')
 const morgan = require('morgan');
 // Import user-route to get all HTTP method from the controller
 const userRoute = require('./routes/user-route')
+
+const sportRoute = require('./routes/sport-route');
+const athleteRoute = require('./routes/athlete-route');
 // Build the application that it'll use to create our routes
 const app = express();
 // Import environnement variable for configuration
-require('dotenv').config({path:'../.env'})
+require('dotenv').config()
 
 // Load Morgan middleware for HTTP logs
 app.use(morgan('tiny'));
@@ -56,6 +59,7 @@ app.get('/api',(req,res) => {
 })
 // Load the UserRoute middleware with the URL 'api/user' specified in the 'user-route.js'
 app.use('/api',userRoute);
-
+app.use('/api',sportRoute);
+app.use('/api',athleteRoute)
 module.exports = app;
 
