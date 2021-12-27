@@ -16,7 +16,7 @@ const authRoute = require('./routes/auth-route')
 // Build the application that it'll use to create our routes
 const app = express();
 // Import environnement variable for configuration
-require('dotenv').config()
+require('dotenv').config({path:'../.env'})
 
 // Load Morgan middleware for HTTP logs
 app.use(morgan('tiny'));
@@ -58,12 +58,12 @@ app.use(bodyParser.json());
 app.get('/api',(req,res) => {
     console.log("API is running");
 })
-// Load the UserRoute middleware with the URL 'api/user' specified in the 'user-route.js'
-app.use('/api',sportRoute);
-app.use('/api',athleteRoute)
+
 // Load the routes middleware with the right URL specified in the route files
 app.use('/api', authRoute);
 app.use('/api/users',userRoute);
+app.use('/api/sports',sportRoute);
+app.use('/api/athletes',athleteRoute)
 
 
 module.exports = app;
