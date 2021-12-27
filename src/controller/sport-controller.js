@@ -8,8 +8,9 @@ const Sport = require('../model/sport-model');
  */
 const getAll = async (req, res) => {
     try {
-        const sports = await Sport.find();
-        return res.status(200).json({ sports });
+        const sports = await Sport.find()
+            .populate({path: 'athletes'});
+        return res.status(200).json({ success: true, sports });
     } catch (error) {
         return res.status(500).send(error.message);
     }
