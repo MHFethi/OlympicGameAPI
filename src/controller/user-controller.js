@@ -19,7 +19,6 @@ const getAll = async (req, res) => {
 
 /**
  * Get User by ID
- *
  * @param req
  * @param res
  * @returns {Promise<*>}
@@ -39,7 +38,6 @@ const getUserById = async (req, res) => {
 
 /**
  * Save a new User in the database
- *
  * @param req
  * @param res
  * @returns {Promise<*>}
@@ -69,7 +67,6 @@ const createUser = async (req, res) => {
 
 /**
  * Update an existing User by ID
- *
  * @param req
  * @param res
  * @returns {Promise<*>}
@@ -103,7 +100,6 @@ const updateUser = async (req, res) => {
 
 /**
  * Delete User in the database by ID
- *
  * @param req
  * @param res
  * @returns {Promise<void>}

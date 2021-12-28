@@ -1,19 +1,26 @@
 // Import dependencies that we need
 const express = require('express');
+
 // Import mongoose framework for db connexion
 const {connect} = require('mongoose');
+
 // Body parser is a middleware which held to tidy up the request object before we use them
-const bodyParser= require('body-parser')
+const bodyParser= require('body-parser');
+
 // Morgan allow to log HTTP requests and error, and simplifies the process
 const morgan = require('morgan');
+
 // Import all route to get all HTTP method from the controller
-const userRoute = require('./routes/user-route')
-const authRoute = require('./routes/auth-route')
+const userRoute = require('./routes/user-route');
+const authRoute = require('./routes/auth-route');
+const genderRoute = require('./routes/gender-route');
+const countryRoute = require('./routes/country-route');
 
 // Build the application that it'll use to create our routes
 const app = express();
+
 // Import environnement variable for configuration
-require('dotenv').config({path:'../.env'})
+require('dotenv').config({path:'../.env'});
 
 // Load Morgan middleware for HTTP logs
 app.use(morgan('tiny'));
@@ -51,11 +58,10 @@ app.use((req, res, next) => {
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 
-
 // Load the routes middleware with the right URL specified in the route files
 app.use('/api', authRoute);
 app.use('/api/users',userRoute);
-
-
+app.use('/api/genders',genderRoute);
+app.use('/api/countries', countryRoute);
 module.exports = app;
 
