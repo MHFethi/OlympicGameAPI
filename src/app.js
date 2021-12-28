@@ -15,6 +15,8 @@ const userRoute = require('./routes/user-route');
 const authRoute = require('./routes/auth-route');
 const genderRoute = require('./routes/gender-route');
 const countryRoute = require('./routes/country-route');
+const sportRoute = require('./routes/sport-route');
+const athleteRoute = require('./routes/athlete-route');
 
 // Build the application that it'll use to create our routes
 const app = express();
@@ -61,7 +63,10 @@ app.use(bodyParser.json());
 // Load the routes middleware with the right URL specified in the route files
 app.use('/api', authRoute);
 app.use('/api/users',userRoute);
+app.use('/api/sports',sportRoute);
+app.use('/api/athletes',athleteRoute)
 app.use('/api/genders',genderRoute);
 app.use('/api/countries', countryRoute);
+
 module.exports = app;
 
