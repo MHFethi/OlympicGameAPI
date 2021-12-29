@@ -2,6 +2,8 @@
 ### TP NodeJs & Chatbot
 L'objectif du TP 1 est de construire une plate-forme pour manipuler et stocker des données liées aux Jeux Olympiques. Cette plate-forme expose une API REST et une interface d'administration. Elle doit être réalisée avec Node.js, Express.js, MongoDB et Mongoose. Pour le TP 2 (en 2021), la plate-forme sera le socle d'un chatbot d'information sur les JO
 
+-----------------------------------------------------------
+
 ### Principes pour l'implémentation
 L'organisation des Jeux Olympiques implique la mise à place d'événements de compétition pour chacun des sports olympiques, impliquant les meilleures athlètes de la planète. Pour mieux appréhender la nature des données en jeu, se reporter notamment la page Calendrier des JO 2020 (opens new window). Pour gérer les données (i.e. leur administration), une interface Web est mis en place pour gérer le référentiel des données, organisées sous forme de collections MongoDB :
 
@@ -9,7 +11,8 @@ L'organisation des Jeux Olympiques implique la mise à place d'événements de c
 - Athlètes (collection athletes) ;
 - Utilisateurs administrateurs (collection adminusers) => En option !
 
-### Technologies utilisées-
+-----------------------------------------------------------
+### Technologies utilisées
   - NodeJS - Platform
   - Express - Framework
   - JavaScript - Programming Language
@@ -20,7 +23,7 @@ L'organisation des Jeux Olympiques implique la mise à place d'événements de c
 # Database
 ### Conception
 
-![This is an image](assets/img/2021-12-28_21h54_27.png)
+![This is an image](assets/img/merise.png)
 
 # API REST
 ### Endpoint Sports
@@ -54,6 +57,7 @@ En option :
 - [ ] Page Web Lister les athlètes
 - [ ] Page Web Créer un sport (formulaire)
 - [ ] Page Web Créer un athlète (formulaire)
+-----------------------------------------------------------
 
 ### Autres pages Web Sports/Athlètes (optionnel)
 - [ ] Page Web ou fonctionnalité Supprimer un sport
@@ -65,11 +69,13 @@ En option :
 - [ ] Page Web Créer un utilisateur (formulaire)
 - [ ] Page Web ou fonctionnalité Supprimer un utilisateur
 - [ ] Page Web Modifier un utilisateur (formulaire)
+-----------------------------------------------------------
 
 ### Autres options avancées (optionnel)
 - [ ] Authenfication sur les API REST
 - [ ] Page Web de connexion avec login/mot de passe utilisateur
-- 
+
+
 ## Rendu attendu
 - [ ] Code source sur un repo Git (sans le dossier node_modules 🙏)
 - [ ] ```README.md```

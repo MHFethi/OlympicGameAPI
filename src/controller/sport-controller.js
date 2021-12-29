@@ -1,15 +1,14 @@
 const Sport = require('../model/sport-model');
 
 /**
- * Get all sports from db
+ * Get all Sports from db
  * @param req
  * @param res
  * @returns {Promise<*>}
  */
 const getAll = async (req, res) => {
     try {
-        const sports = await Sport.find()
-            .populate({path: 'athletes'});
+        const sports = await Sport.find();
         return res.status(200).json({ success: true, sports });
     } catch (error) {
         return res.status(500).send(error.message);
@@ -18,19 +17,21 @@ const getAll = async (req, res) => {
 
 /**
  * Save a new Sport in the database
- *
  * @param req
  * @param res
  * @returns {Promise<*>}
  */
-const createSport = async (req, res) => {
+const save = async (req, res) => {
     try {
-        // Check data required
-        if(!req.body.sport.sportName) throw new Error("Sport name is Required");
+        // Get Sport data from body
+        const data = req.body.sport
+        // Check that we don't have a empty body or empty Sport's name
+        if (!data)throw new Error("No Sport data");
+        if (!data.name)throw new Error("Sport name is required");
 
         // Save in the database the new Sport
         const sport = await Sport.create({
-            sportName: req.body.sport.sportName,
+            name: data.name
         });
 
         if(sport)
@@ -43,5 +44,5 @@ const createSport = async (req, res) => {
 
 module.exports = {
     getAll,
-    createSport
+    save
 }
