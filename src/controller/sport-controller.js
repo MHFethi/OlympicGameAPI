@@ -148,7 +148,8 @@ const addAthlete = async (req, res) => {
         }
 
         let athletes = sport.athletes;
-
+        
+        // TODO: Add athlete in sport only if not alreading in (avoid duplicated athletes in sport) still in progress
         if(athletes.length === 0){
             athletes.push(athlete)
         } else {
