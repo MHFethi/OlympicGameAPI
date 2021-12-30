@@ -52,10 +52,12 @@ const save = async (req, res) => {
         // Check that we don't have a empty body or empty Country's name
         if (!data)throw new Error("No Country data");
         if (!data.name)throw new Error("Country name is required");
+        if (!data.code)throw new Error("Country code is required");
 
         // Save in the database the new Gender
         const country = await Country.create({
-            name: data.name
+            name: data.name,
+            code: data.code
         });
 
         if(country) return res.status(201).json({country});
@@ -81,7 +83,6 @@ const update = async (req, res) => {
 
         // Check that we don't have a empty body or empty Country's name
         if (!data)throw new Error("No Country data");
-        if (!data.name)throw new Error("Country name is required");
 
         // Check if the Country already exist in the db
         let country = await Country.findOne({ country_id: id });
@@ -92,9 +93,12 @@ const update = async (req, res) => {
 
         // Init old or new value depending of if we get data from body
         const name = data.name ? data.name : country.name;
+        const code = data.code ? data.code : country.code;
 
         // Update the Country in the db
-        country = await Country.updateOne({ country_id: id }, { name: name });
+        country = await Country.updateOne(
+            { country_id: id },
+            { name: name, code: code });
         return res.status(200).json({ country });
     } catch (e) {
         const code = res.statusCode ? res.statusCode : 422;

@@ -72,7 +72,6 @@ const update = async (req, res) => {
 
         // Check that we don't have a empty body or empty Gender's name
         if (!data)throw new Error("No Gender data");
-        if (!data.name)throw new Error("Gender name is required");
 
         // Get gender data from body
         const id = req.params.id;

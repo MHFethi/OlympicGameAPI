@@ -1,7 +1,6 @@
 const User = require('../model/user-model');
 const {hashPassword} = require("../utils/utils");
 
-
 /**
  * Get all Users from database
  * @param req
