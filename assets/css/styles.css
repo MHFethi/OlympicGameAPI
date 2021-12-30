@@ -37,6 +37,7 @@ body, html {
     margin: auto;
     padding: 0;
     border: 1px solid #888;
+    height: 100%;
     width: 80%;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
     -webkit-animation-name: animatetop;
@@ -72,34 +73,27 @@ body, html {
 }
 
 .modal-header {
-    padding: 2px 16px;
-    background-color: #5cb85c;
+    padding: 2px;
+    background-color: #000000;
     color: white;
 }
 
-.modal-body {padding: 2px 16px;}
+.modal-body {padding: 2px;}
 
 .modal-footer {
-    padding: 2px 16px;
-    background-color: #5cb85c;
-    color: white;
-}hover,
-.close:focus {
-    color: #000;
-    text-decoration: none;
-    cursor: pointer;
-}
-
-.modal-header {
-    padding: 2px 16px;
-    background-color: #5cb85c;
+    padding: 2px;
+    background-color: #000000;
     color: white;
 }
 
-.modal-body {padding: 2px 16px;}
+#sports {
+    background: url("../img/surf.jpeg") center no-repeat;
+    background-size: contain;
+    height: 100%;
+}
 
-.modal-footer {
-    padding: 2px 16px;
-    background-color: #5cb85c;
-    color: white;
+#athletes {
+    background: url("../img/nbc-tokyo-olympic-branding-2020-7.jpeg") center no-repeat;
+    background-size: contain;
+    height: 100%;
 }

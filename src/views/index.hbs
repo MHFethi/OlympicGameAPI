@@ -1,3 +1,41 @@
-<div class="container-fluid main-content">
+<div class="container-fluid main-content px-4">
    <button class="btn-primary go" id="myBtn">Let's Go !</button>
 </div>
+
+<!-- The Modal -->
+<div id="myModal" class="modal">
+    <!-- Modal content -->
+    <div class="modal-content">
+        <div class="modal-header">
+            <span class="close">&times;</span>
+        </div>
+        <div class="modal-body row gx-5">
+            <div class="col" id="sports"></div>
+            <div class="col" id="athletes"></div>
+        </div>
+        <div class="modal-footer">
+        </div>
+    </div>
+</div>
+<script>
+    const modal = document.getElementById("myModal");
+    const btn = document.getElementById("myBtn");
+    const span = document.getElementsByClassName("close")[0];
+
+    // When the user clicks the button, open the modal
+    btn.onclick = () => {
+        modal.style.display = "block";
+    }
+
+    // When the user clicks on <span> (x), close the modal
+    span.onclick = () => {
+        modal.style.display = "none";
+    }
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = (event) => {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+</script>
