@@ -1,0 +1,18 @@
+<div class="sports">
+    {{#each sports}}
+    <ul>
+        <li>{{name}}</li>
+        <li>
+        <h3>Athlètes :</h3>
+        {{#each athletes}}
+
+            <ul>
+                <li>{{firstName}}</li>
+                <li>{{lastName}}</li>
+            </ul>
+            <button>Détails</button>
+        {{/each}}
+        </li>
+    </ul>
+    {{/each}}
+</div>

@@ -35,8 +35,9 @@ app.set('view engine', 'hbs');
 app.set('views', path.join(__dirname, 'views'));
 
 app.get('/', (req, res) => {
-    res.render('index', {title:'index'});
+    res.render('index');
 })
+
 // Connection to the Mongodatabase
 connect(process.env.ATLAS_URI,
     {

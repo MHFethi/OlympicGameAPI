@@ -14,7 +14,9 @@ const getAll = async (req, res) => {
             .populate('gender')
             .populate('country')
             .exec();
-        return res.status(200).json({ athletes });
+
+        res.render('athletes', {athletes});
+        //return res.status(200).json({ athletes });
     } catch (error) {
         return res.status(500).send(error.message);
     }

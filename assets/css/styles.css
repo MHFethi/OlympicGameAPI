@@ -10,8 +10,8 @@ body, html {
 
 .go {
     position: absolute;
-    top: 80%;
-    left: 80%;
+    top: 70%;
+    left: 10%;
     border-radius: 0.5em;
 }
 
@@ -92,8 +92,12 @@ body, html {
     height: 100%;
 }
 
+.sports, .athletes{
+    padding-top: 200px;
+}
 #athletes {
     background: url("../img/nbc-tokyo-olympic-branding-2020-7.jpeg") center no-repeat;
     background-size: contain;
     height: 100%;
 }
+
