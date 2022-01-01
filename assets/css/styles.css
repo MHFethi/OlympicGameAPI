@@ -92,8 +92,25 @@ body, html {
     height: 100%;
 }
 
+#sports button {
+    margin: 60% 0 0 10%;
+}
+
+#athletes button {
+    margin: 60% 0 0 80%;
+}
 .sports, .athletes{
-    padding-top: 200px;
+    height: 100%;
+    width:100%;
+}
+
+.sports {
+    background-color: #acf1ff;
+}
+
+.athletes {
+    background-color: #e92032;
+    color: #fefefe;
 }
 #athletes {
     background: url("../img/nbc-tokyo-olympic-branding-2020-7.jpeg") center no-repeat;
@@ -101,5 +118,20 @@ body, html {
     height: 100%;
 }
 
+.sports-header, .athletes-header {
+    margin-top: 5%;
+    height: 20%;
+    width: 100%;
 
+}
+
+.sports-header {
+    background: url('../img/surf.jpeg') center no-repeat;
+    background-size: contain;
+}
+
+.athletes-header {
+    background: url('../img/nbc-tokyo-olympic-branding-2020-7.jpeg') center no-repeat;
+    background-size: contain;
+}
 

@@ -1,9 +1,55 @@
 <div class="athletes">
-    {{#each athletes}}
-        <ul>
-            <li>Prénom : {{firstName}}</li>
-            <li>Nom : {{lastName}}</li>
-            <li>Genre : {{gender.name}}</li>
-        </ul>
-    {{/each}}
+    <div class="athletes-header">
+        <button id="myBtn">Ajouter Athlète</button>
+    </div>
+    <div class="container">
+        <div class="row">
+            {{#each athletes}}
+                <ul class="col-md-4">
+                    <li>Prénom : {{firstName}}</li>
+                    <li>Nom : {{lastName}}</li>
+                    <li>Genre : {{gender.name}}</li>
+                </ul>
+            {{/each}}
+        </div>
+    </div>
 </div>
+
+<div class="modal-form" id="myModal">
+    <form class="modal-content" method="post" action="/api/athletes">
+        <div class="mb-3">
+            <label for="lastName" class="form-label">Saisissez le nom de l'athlète : </label>
+            <input type="text" class="form-control" id="lastName" name="lastName" aria-describedby="nameHelp">
+            <label for="firstName" class="form-label">Saisissez le prénom de l'athlète : </label>
+            <input type="text" class="form-control" id="firstName" name="firstName" aria-describedby="nameHelp">
+            <label for="gender" class="form-label">Saisissez le genre de l'athlète : </label>
+            <input type="text" class="form-control" id="gender" name="gender" aria-describedby="nameHelp">
+            <label for="country" class="form-label">Saisissez la délégation de l'athlète : </label>
+            <input type="text" class="form-control" id="country" name="country" aria-describedby="nameHelp">
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
+
+<script>
+    const modal = document.getElementById("myModal");
+    const btn = document.getElementById("myBtn");
+    const span = document.getElementsByClassName("close")[0];
+
+    // When the user clicks the button, open the modal
+    btn.onclick = () => {
+        modal.style.display = "block";
+    }
+
+    // When the user clicks on <span> (x), close the modal
+    span.onclick = () => {
+        modal.style.display = "none";
+    }
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = (event) => {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+</script>
