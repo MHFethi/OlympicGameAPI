@@ -28,6 +28,7 @@ const getAll = async (req, res) => {
  */
 const getById = async (req, res) => {
     try {
+
         // Get Country data from body
         const id = req.params.id;
         const sport = await Sport.findOne({ sport_id: id });
@@ -50,9 +51,16 @@ const getById = async (req, res) => {
  */
 const save = async (req, res) => {
     try {
+
         // Get Sport data from body
-        const data = req.body.sport;
-        const athletes = new Array();
+        let name = req.body.name;
+
+        const athletes = [];
+
+        const data = {
+            "name":name,
+            "athletes":athletes
+        };
 
         // Check that we don't have a empty body or empty Sport's name
         if (!data)throw new Error("No Sport data");
@@ -76,7 +84,8 @@ const save = async (req, res) => {
             athletes:athletes
         });
         if(sport)
-            return res.status(201).json({sport});
+            res.redirect('/api/sports');
+            //return res.status(201).json({sport});
     } catch (e) {
         const code = res.statusCode ? res.statusCode : 422;
         return res.status(code).json({ errors: { body: ['Could not create Sport', e.message] }});
