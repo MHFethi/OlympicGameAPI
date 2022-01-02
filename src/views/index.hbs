@@ -1,45 +1,11 @@
-<div class="main-content px-4">
-   <button class="btn-primary go" id="myBtn">Let's Go !</button>
-</div>
-
-<!-- The Modal -->
-<div id="myModal" class="modal">
-    <!-- Modal content -->
-    <div class="modal-content">
-        <div class="modal-header">
-            <span class="close">&times;</span>
+  <section id="hero" class="d-flex align-items-center">
+    <div class="container" data-aos="zoom-out" data-aos-delay="100">
+      <div class="row">
+        <div class="col-xl-6">
+          <h1>Olympic Games</h1>
+          <p class="mt-2 text-justify text-light">Les Jeux de Tokyo 2020 ont été une démonstration sans précédent d’unité et de solidarité, le monde s’y rassemblant pour la première fois suite au début de la pandémie de COVID-19. Ces Jeux Olympiques ont donc été axés sur l’essentiel : la célébration des athlètes et du sport...</p>
+          <a href="#" class="btn-get-started scrollto">Read more</a>
         </div>
-        <div class="modal-body row">
-            <div class="col" id="sports">
-                <a href="api/sports"><button class="btn-danger">Sports</button></a>
-            </div>
-            <div class="col" id="athletes">
-                <a href="api/athletes"><button class="btn-primary">Athlètes</button></a>
-            </div>
-        </div>
-        <div class="modal-footer">
-        </div>
+      </div>
     </div>
-</div>
-<script>
-    const modal = document.getElementById("myModal");
-    const btn = document.getElementById("myBtn");
-    const span = document.getElementsByClassName("close")[0];
-
-    // When the user clicks the button, open the modal
-    btn.onclick = () => {
-        modal.style.display = "block";
-    }
-
-    // When the user clicks on <span> (x), close the modal
-    span.onclick = () => {
-        modal.style.display = "none";
-    }
-
-    // When the user clicks anywhere outside of the modal, close it
-    window.onclick = (event) => {
-        if (event.target == modal) {
-            modal.style.display = "none";
-        }
-    }
-</script>
+  </section><!-- End Hero -->

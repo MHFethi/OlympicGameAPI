@@ -20,8 +20,11 @@ const sportRoute = require('./routes/sport-route');
 const athleteRoute = require('./routes/athlete-route');
 
 
+
 // Build the application that it'll use to create our routes
 const app = express();
+app.use(express.static('../assets'));
+
 
 // Import environnement variable for configuration
 require('dotenv').config({path:'../.env'});

@@ -74,6 +74,7 @@ const save = async (req, res) => {
         const athlete = await Athlete.create({
             firstName: data.firstName,
             lastName: data.lastName,
+            photo: data.photo,
             gender:gender,
             country:country
         });
@@ -110,6 +111,7 @@ const update = async (req, res) => {
         // Init old or new value depending of if we get data from body
         const firstName = data.firstName ? data.firstName : athlete.firstName;
         const lastName = data.lastName ? data.lastName : athlete.lastName;
+        const photo = data.photo ? data.photo : athlete.photo;
 
         // Check the validation data for gender before updating
         let gender;
@@ -132,6 +134,7 @@ const update = async (req, res) => {
         athlete = await Athlete.updateOne({ gender_id: id }, {
             firstName: firstName,
             lastName: lastName,
+            photo: photo,
             gender: gender,
             country: country
         });

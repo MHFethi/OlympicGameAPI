@@ -1,16 +1,33 @@
-<section class="athletes">
-    <div class="container px-5">
-        <div class="athletes-header"></div>
-        <div class="row gx-5">
-            {{#each athletes}}
-                <div class="col-md-4 mb-5">
-                    <div class="text-center">
-                        <h3 class="font-alt">{{firstName}} {{lastName}}</h3>
-                        <p class="text-muted mb-0">{{gender.name}}</p>
-                        <p class="text-muted mb-0">{{country.name}}</p>
-                    </div>
-                </div>
-            {{/each}}
+<!-- ======= Team Section ======= -->
+    <section id="team" class="team section-bg">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+          <h2>Athlètes</h2>
         </div>
-    </div>
-</section>
+
+        <div class="row">
+        {{#each athletes}}
+          <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
+            <div class="member" data-aos="fade-up" data-aos-delay="100">
+              <div class="member-img">
+                <img src="/img/athletes/{{photo}}" class="img-fluid" alt="">
+                <div class="social">
+                  <a href=""><i class="bi bi-twitter"></i></a>
+                  <a href=""><i class="bi bi-facebook"></i></a>
+                  <a href=""><i class="bi bi-instagram"></i></a>
+                  <a href=""><i class="bi bi-linkedin"></i></a>
+                </div>
+              </div>
+              <div class="member-info">
+                <h4>{{firstName}} {{lastName}}</h4>
+                <span>{{country.name}}</span>
+                <span>{{gender.name}}</span>
+              </div>
+            </div>
+          </div>
+   {{/each}}
+        </div>
+
+      </div>
+    </section><!-- End Team Section -->
