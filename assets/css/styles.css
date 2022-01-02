@@ -99,39 +99,30 @@ body, html {
 #athletes button {
     margin: 60% 0 0 80%;
 }
-.sports, .athletes{
-    height: 100%;
-    width:100%;
-}
 
-.sports {
-    background-color: #acf1ff;
-}
-
-.athletes {
-    background-color: #e92032;
-    color: #fefefe;
-}
 #athletes {
     background: url("../img/nbc-tokyo-olympic-branding-2020-7.jpeg") center no-repeat;
     background-size: contain;
     height: 100%;
 }
 
-.sports-header, .athletes-header {
-    margin-top: 5%;
-    height: 20%;
-    width: 100%;
+.sports {
 
 }
-
 .sports-header {
-    background: url('../img/surf.jpeg') center no-repeat;
+    margin-top: 5%;
+    padding-top :20%;
+    height: 20%;
+    background: url("../img/surf.jpeg") center no-repeat;
     background-size: contain;
 }
 
 .athletes-header {
-    background: url('../img/nbc-tokyo-olympic-branding-2020-7.jpeg') center no-repeat;
+    margin-top: 5%;
+    padding-top :20%;
+    height: 20%;
+    background: url("../img/nbc-tokyo-olympic-branding-2020-7.jpeg") center no-repeat;
     background-size: contain;
 }
+
 
