@@ -5,6 +5,9 @@ const SportSchema = new mongoose.Schema({
     name : {
         type: String
     },
+    photo : {
+        type: String
+    },
     athletes : [{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'athlete'

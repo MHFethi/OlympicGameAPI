@@ -19,24 +19,17 @@ const countryRoute = require('./routes/country-route');
 const sportRoute = require('./routes/sport-route');
 const athleteRoute = require('./routes/athlete-route');
 
-
-
 // Build the application that it'll use to create our routes
 const app = express();
 app.use(express.static('../assets'));
 
-
 // Import environnement variable for configuration
 require('dotenv').config({path:'../.env'});
-
 // Load Morgan middleware for HTTP logs
 app.use(morgan('tiny'));
-
-app.use(express.static('assets'));
 //Set render engine
 app.set('view engine', 'hbs');
 app.set('views', path.join(__dirname, 'views'));
-
 app.get('/', (req, res) => {
     res.render('index');
 })

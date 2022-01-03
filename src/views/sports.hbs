@@ -1,65 +1,32 @@
-<div class="sports">
-    <div class="sports-header">
-        <button id="myBtn">Ajouter Sport</button>
-    </div>
-    <div class="container">
-        <div class="row">
-            {{#each sports}}
-                <ul class="col-md-4">
-                    <h3>{{name}}</h3>
-                    {{#if athletes}}
-                        <li>
-                            <p>Athlètes :</p>
-                            {{#each athletes}}
-                                <ul>
-                                    <li>{{firstName}} {{lastName}}</li>
-                                </ul>
-                                <button>Détails</button>
+<!-- ======= Sports Section ======= -->
+<section id="team" class="team section-sport">
+    <div class="container" data-aos="fade-up">
+        <div class="section-title">
+            <h2>Sports</h2>
+        </div>
+        <div class="grid default-grid">
+            <div class="container">
+                <div class="row gutter-margin-xs-sm gutter-margin-sm-md">
+                    <div class="col-xs-12">
+                        <div class="row row-xs-xs sample-row">
+                            {{#each sports}}
+                                <div class="col-xs-6 col-sm-3 col-md-2 gutter-xs-xs gutter-margin-xs-xs text-center p-3 ">
+                                    <img src="/img/sports/{{photo}}" class="img-fluid text-center" alt="" style="width: 75px; height: 75px">
+                                    <div class="inner text-center">{{name}}</div>
+                                    <div class="social">
+                                        <a href=""><i class="bi bi-pencil-fill"></i></a>
+                                        <a href=""><i class="bi bi-trash-fill"></i></a>
+                                    </div>
+                                </div>
+
                             {{/each}}
-                        </li>
-                    {{/if}}
-                </ul>
-            {{/each}}
-        </div>
-    </div>
-</div>
-
-
-
-<div class="modal-form" id="myModal">
-    <div class="modal-content">
-        <div class="modal-header">
-            <span class="close">&times;</span>
-        </div>
-        <form method="post" action="/api/sports">
-            <div class="mb-3">
-                <label for="name" class="form-label">Saisissez le nom du sport : </label>
-                <input type="text" class="form-control" id="name" name="name" aria-describedby="nameHelp">
+                        </div>
+                    </div>
+                </div>
             </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
-        </form>
+        </div>
     </div>
-</div>
+</section>
+<!-- End Team Section -->
 
-<script>
-    const modal = document.getElementById("myModal");
-    const btn = document.getElementById("myBtn");
-    const span = document.getElementsByClassName("close")[0];
 
-    // When the user clicks the button, open the modal
-    btn.onclick = () => {
-        modal.style.display = "block";
-    }
-
-    // When the user clicks on <span> (x), close the modal
-    span.onclick = () => {
-        modal.style.display = "none";
-    }
-
-    // When the user clicks anywhere outside of the modal, close it
-    window.onclick = (event) => {
-        if (event.target == modal) {
-            modal.style.display = "none";
-        }
-    }
-</script>

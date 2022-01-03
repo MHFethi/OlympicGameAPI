@@ -13,7 +13,7 @@ const getAll = async (req, res) => {
             .populate('athletes').exec();
 
         const athletes = await Athlete.find();
-        res.render('sports-clean', { sports, athletes });
+        res.render('sports', { sports, athletes });
         //return res.status(200).json({ success: true, sports });
     } catch (error) {
         return res.status(500).send(error.message);
@@ -51,14 +51,12 @@ const getById = async (req, res) => {
  */
 const save = async (req, res) => {
     try {
-
         // Get Sport data from body
-        let name = req.body.name;
-
         const athletes = [];
 
         const data = {
-            "name":name,
+            "name":req.body.name,
+            "photo": req.body.photo,
             "athletes":athletes
         };
 
@@ -81,11 +79,12 @@ const save = async (req, res) => {
         // Save in the database the new Sport
         sport = await Sport.create({
             name: data.name,
+            photo: data.photo,
             athletes:athletes
         });
         if(sport)
-            res.redirect('/api/sports');
-            //return res.status(201).json({sport});
+           // res.redirect('/api/sports');
+            return res.status(201).json({sport});
     } catch (e) {
         const code = res.statusCode ? res.statusCode : 422;
         return res.status(code).json({ errors: { body: ['Could not create Sport', e.message] }});
@@ -115,6 +114,8 @@ const update = async (req, res) => {
         }
         // Init old or new value depending of if we get data from body
         const name = data.name ? data.name : sport.name;
+        const photo = data.photo ? data.photo : sport.photo;
+        
         if (data.athletes) {
             // Init each athlete for the sport
             for (let athlete of data.athletes) {
@@ -126,6 +127,7 @@ const update = async (req, res) => {
 
         sport = await Sport.updateOne({ sport_id: id }, {
             name: name,
+            photo:photo,
             athletes:athletes
         });
 
