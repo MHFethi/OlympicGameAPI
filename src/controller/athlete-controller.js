@@ -1,6 +1,8 @@
 const Athlete = require("../model/athlete-model");
 const Gender = require("../model/gender-model");
-const Country = require('../model/country-model')
+const Country = require('../model/country-model');
+
+
 
 /**
  * Get all Athletes from db
@@ -54,23 +56,29 @@ const getById = async (req, res) => {
 const save = async (req, res) => {
     try {
         // Get gender data from body
-        const data = req.body
+        const data = {
+            "firstName":req.body.firstName,
+            "lastName": req.body.lastName,
+            "photo": req.body.photo,
+        };
 
         // Check that we don't have a empty body or empty Country's name
+        console.log(req.headers)
+
         console.log(data)
+        console.log(req.body)
 
         if (!data)throw new Error("No Athlete data");
         if (!data.firstName)throw new Error("Athlete first name is required");
         if (!data.lastName)throw new Error("Athlete last name is required");
-        if (!data.gender.gender_id)throw new Error("Gender is required");
-        if (!data.country.country_id)throw new Error("Country is required");
+     //   if (!data.gender.gender_id)throw new Error("Gender is required");
+      //  if (!data.country.country_id)throw new Error("Country is required");
 
         const gender = await Gender.findOne({ gender_id: data.gender.gender_id });
         if (!gender) throw new Error("Any Gender found");
 
         const country = await Country.findOne({ country_id: data.country.country_id });
         if (!country) throw new Error("Any Country found");
-
 
         // Save in the database the new Gender
         const athlete = await Athlete.create({
