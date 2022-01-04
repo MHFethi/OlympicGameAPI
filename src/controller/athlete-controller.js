@@ -54,9 +54,11 @@ const getById = async (req, res) => {
 const save = async (req, res) => {
     try {
         // Get gender data from body
-        const data = req.body.athlete
+        const data = req.body
 
         // Check that we don't have a empty body or empty Country's name
+        console.log(data)
+
         if (!data)throw new Error("No Athlete data");
         if (!data.firstName)throw new Error("Athlete first name is required");
         if (!data.lastName)throw new Error("Athlete last name is required");

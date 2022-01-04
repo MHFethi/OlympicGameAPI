@@ -33,7 +33,6 @@ app.set('views', path.join(__dirname, 'views'));
 app.get('/', (req, res) => {
     res.render('index');
 })
-
 // Connection to the Mongodatabase
 connect(process.env.ATLAS_URI,
     {
@@ -64,7 +63,7 @@ app.use((req, res, next) => {
 });
 
 // The urlencoded method within body-parser tells body-parser to extract data from the <form> element and add them to the body property in the request object.
-app.use(bodyParser.urlencoded({extended: true}));
+app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
 
 // Load the routes middleware with the right URL specified in the route files
