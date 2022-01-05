@@ -1,5 +1,4 @@
 const Gender = require('../model/gender-model')
-const User = require("../model/user-model");
 
 /**
  * Get all Genders from database
@@ -9,8 +8,10 @@ const User = require("../model/user-model");
  */
 const getAll = async (req, res) => {
     try {
-        const genders = await Gender.find();
-        return res.status(200).json({ genders });
+        const genders =   await Gender.find()
+        res.render('genders', { genders });
+        return genders;
+       // return res.status(200).json({ genders });
     } catch (error) {
         return res.status(500).send(error.message);
     }

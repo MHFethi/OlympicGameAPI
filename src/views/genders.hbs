@@ -1,0 +1,33 @@
+<!-- ======= Athletes Genders ======= -->
+    <section id="team" class="team section-bg">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+          <h2>Genders</h2>
+        </div>
+
+        <div class="row">
+        <table class="table table-dark">
+          <thead>
+            <tr>
+              <th scope="col">Name</th>
+              <th scope="col"></th>
+            </tr>
+          </thead>
+          <tbody>
+          {{#each genders}}
+            <tr>
+              <td>{{name}}</td>
+              <td>
+              <i class="text-danger bi bi-trash-fill"></i>
+              <i class="text-danger bi bi-pencil-fill"></i>
+              </td>
+            {{/each}}
+            </tr>
+          </tbody>
+        </table>
+        </div>
+
+      </div>
+    </section>
+<!-- End Genders Section -->

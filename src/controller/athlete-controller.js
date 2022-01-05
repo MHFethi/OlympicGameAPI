@@ -16,8 +16,9 @@ const getAll = async (req, res) => {
             .populate('gender')
             .populate('country')
             .exec();
-
-        res.render('athletes', {athletes});
+        const countries = await Country.find();
+        const gender = await Gender.find();
+        res.render('athletes', {athletes, countries:countries, gender:gender });
         //return res.status(200).json({ athletes });
     } catch (error) {
         return res.status(500).send(error.message);
@@ -60,24 +61,20 @@ const save = async (req, res) => {
             "firstName":req.body.firstName,
             "lastName": req.body.lastName,
             "photo": req.body.photo,
+            "gender_id":req.body.gender_id,
+            "country_id":req.body.country_id
         };
 
         // Check that we don't have a empty body or empty Country's name
-        console.log(req.headers)
+        if (!data.firstName) throw new Error("Athlete first name is required");
+        if (!data.lastName) throw new Error("Athlete last name is required");
+        if (!data.gender_id)throw new Error("Gender is required");
+        if (!data.country_id)throw new Error("Country is required");
 
-        console.log(data)
-        console.log(req.body)
-
-        if (!data)throw new Error("No Athlete data");
-        if (!data.firstName)throw new Error("Athlete first name is required");
-        if (!data.lastName)throw new Error("Athlete last name is required");
-     //   if (!data.gender.gender_id)throw new Error("Gender is required");
-      //  if (!data.country.country_id)throw new Error("Country is required");
-
-        const gender = await Gender.findOne({ gender_id: data.gender.gender_id });
+        const gender = await Gender.findOne({ gender_id: data.gender_id });
         if (!gender) throw new Error("Any Gender found");
 
-        const country = await Country.findOne({ country_id: data.country.country_id });
+        const country = await Country.findOne({ country_id: data.country_id });
         if (!country) throw new Error("Any Country found");
 
         // Save in the database the new Gender
@@ -89,7 +86,7 @@ const save = async (req, res) => {
             country:country
         });
 
-        if(athlete) return res.status(201).json({athlete});
+        if(athlete) return res.status(201).json({ message:"New Athlete added successfully" });
 
     } catch (e) {
         const code = res.statusCode ? res.statusCode : 422;
@@ -164,6 +161,7 @@ const update = async (req, res) => {
  */
 const deleteAthlete = async (req, res) => {
     try {
+        console.log(req.params.id)
         // Check first if the Athlete exist in the db
         const athlete = await Athlete.findOne({ athlete_id: parseInt(req.params.id)});
         if(!athlete) throw new Error("No athlete found");

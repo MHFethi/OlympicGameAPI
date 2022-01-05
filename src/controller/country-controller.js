@@ -9,7 +9,10 @@ const Country = require('../model/country-model')
 const getAll = async (req, res) => {
     try {
         const countries = await Country.find();
-        return res.status(200).json({ countries });
+        res.render('countries', { countries });
+        return countries;
+
+        //return res.status(200).json({ countries });
     } catch (error) {
         return res.status(500).send(error.message);
     }
@@ -47,7 +50,10 @@ const getById = async (req, res) => {
 const save = async (req, res) => {
     try {
         // Get gender data from body
-        const data = req.body.country
+        const data = {
+            "name":req.body.name,
+            "code": req.body.code,
+        };
 
         // Check that we don't have a empty body or empty Country's name
         if (!data)throw new Error("No Country data");

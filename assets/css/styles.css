@@ -1176,12 +1176,12 @@ section {
     font-size: 14px;
     margin-bottom: 0;
 }
-.contact .php-email-form {
+.contact .nodeCustom-form {
     box-shadow: 0 0 30px rgba(214, 215, 216, 0.6);
     padding: 30px;
     border-radius: 4px;
 }
-.contact .php-email-form .error-message {
+.contact .nodeCustom-formm .error-message {
     display: none;
     color: #fff;
     background: #ed3c0d;
@@ -1189,10 +1189,10 @@ section {
     padding: 15px;
     font-weight: 600;
 }
-.contact .php-email-form .error-message br + br {
+.contact .nodeCustom-form .error-message br + br {
     margin-top: 25px;
 }
-.contact .php-email-form .sent-message {
+.contact .nodeCustom-form .sent-message {
     display: none;
     color: #fff;
     background: #18d26e;
@@ -1200,13 +1200,13 @@ section {
     padding: 15px;
     font-weight: 600;
 }
-.contact .php-email-form .loading {
+.contact .nodeCustom-form .loading {
     display: none;
     background: #fff;
     text-align: center;
     padding: 15px;
 }
-.contact .php-email-form .loading:before {
+.contact .nodeCustom-form .loading:before {
     content: "";
     display: inline-block;
     border-radius: 50%;
@@ -1218,24 +1218,24 @@ section {
     -webkit-animation: animate-loading 1s linear infinite;
     animation: animate-loading 1s linear infinite;
 }
-.contact .php-email-form .form-group {
+.contact .nodeCustom-form .form-group {
     margin-bottom: 25px;
 }
-.contact .php-email-form input, .contact .php-email-form textarea {
+.contact .nodeCustom-form input, .contact .nodeCustom-form textarea {
     box-shadow: none;
     font-size: 14px;
     border-radius: 4px;
 }
-.contact .php-email-form input:focus, .contact .php-email-form textarea:focus {
+.contact .nodeCustom-form input:focus, .contact .nodeCustom-form textarea:focus {
     border-color: #111111;
 }
-.contact .php-email-form input {
+.contact .nodeCustom-form input {
     padding: 10px 15px;
 }
-.contact .php-email-form textarea {
+.contact .nodeCustom-form textarea {
     padding: 12px 15px;
 }
-.contact .php-email-form button[type=submit] {
+.contact .nodeCustom-form button[type=submit] {
     background: #e03a3c;
     border: 0;
     padding: 10px 32px;
@@ -1243,7 +1243,7 @@ section {
     transition: 0.4s;
     border-radius: 4px;
 }
-.contact .php-email-form button[type=submit]:hover {
+.contact .nodeCustom-form button[type=submit]:hover {
     background: #e35052;
 }
 @-webkit-keyframes animate-loading {

@@ -1,5 +1,8 @@
 // Import dependencies that we need
 const express = require('express');
+const session = require('express-session');
+const flash = require('connect-flash');
+
 
 const path = require("path");
 // Import mongoose framework for db connexion
@@ -22,7 +25,13 @@ const athleteRoute = require('./routes/athlete-route');
 // Build the application that it'll use to create our routes
 const app = express();
 app.use(express.static('../assets'));
+app.use(session({
+    secret:'flashblog',
+    saveUninitialized: true,
+    resave: true
+}));
 
+app.use(flash());
 // Import environnement variable for configuration
 require('dotenv').config({path:'../.env'});
 // Load Morgan middleware for HTTP logs
