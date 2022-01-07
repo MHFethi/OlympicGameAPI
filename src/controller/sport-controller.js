@@ -83,8 +83,8 @@ const save = async (req, res) => {
             athletes:athletes
         });
         if(sport)
-           // res.redirect('/api/sports');
-            return res.status(201).json({sport});
+            res.redirect('/api/sports');
+            //return res.status(201).json({sport});
     } catch (e) {
         const code = res.statusCode ? res.statusCode : 422;
         return res.status(code).json({ errors: { body: ['Could not create Sport', e.message] }});
