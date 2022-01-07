@@ -40,7 +40,8 @@ const getById = async (req, res) => {
             res.status(404);
             throw new Error("No Athlete found");
         }
-        return res.status(200).json({ athlete });
+        res.render('athlete-single', athlete);
+        //return res.status(200).json({ athlete });
 
     } catch (e) {
         const code = res.statusCode ? res.statusCode : 422;
