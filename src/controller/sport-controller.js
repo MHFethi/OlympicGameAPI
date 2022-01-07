@@ -36,7 +36,8 @@ const getById = async (req, res) => {
             res.status(404);
             throw new Error("No Sport found");
         }
-        return res.status(200).json({ sport });
+        res.render('sport-single', sport);
+        //return res.status(200).json({ sport });
     } catch (e) {
         const code = res.statusCode ? res.statusCode : 422;
         return res.status(code).json({ errors: { body: ['Something wrong happens', e.message] }});

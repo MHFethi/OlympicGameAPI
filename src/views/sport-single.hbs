@@ -1,0 +1,62 @@
+<!-- ======= Sports Section ======= -->
+<section id="team" class="team section-sport">
+    <div class="container" data-aos="fade-up">
+        <div class="section-title">
+            <h2>Sports</h2>
+        </div>
+        <div class="grid default-grid">
+            <div class="container">
+                <div class="row gutter-margin-xs-sm gutter-margin-sm-md">
+                    <div class="col-xs-12">
+                        <div class="row row-xs-xs sample-row">
+                                <div class="col-xs-6 col-sm-3 col-md-2 gutter-xs-xs gutter-margin-xs-xs text-center p-3 popover__wrapper">
+                                    <div>
+                                        <img src="/img/sports/{{photo}}" class="img-fluid text-center" alt="" style="width: 75px; height: 75px">
+                                        <div class="inner text-center">{{name}}</div>
+                                    </div>
+                                    <div class="social">
+                                        <i class="text-danger bi bi-pencil-fill"></i>
+                                        <i class="text-danger bi bi-trash-fill"></i>
+                                    </div>
+                                    {{#if athletes}}
+                                        <div class="popover__content">
+                                            <div class="modal-area">
+                                                <h5>Athletes: {{name}}</h5>
+                                                <table class="table">
+                                                    <thead class="thead-light">
+                                                    <tr>
+                                                        <th scope="col">Nom</th>
+                                                        <th scope="col">Prénom</th>
+                                                        <th scope="col">Pays</th>
+                                                    </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                    {{#each athletes}}
+                                                        <tr>
+                                                            <td>{{firstName}}</td>
+                                                            <td>{{lastName}}</td>
+                                                            <td>{{country.name}}</td>
+                                                            <td><i class="text-danger bi bi-trash-fill"></i></td>
+                                                        </tr>
+                                                    {{/each}}
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                            <button type="button" class="btn btn-danger">+</button>
+
+                                        </div>
+                                    {{/if}}
+                                </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End Sports Section -->
+
+
+
+
+
