@@ -230,7 +230,8 @@ const deleteSport = async (req, res) => {
 
         // Delete the Sport in the db
         await Sport.deleteOne(sport);
-        res.status(200).json({ message: 'Sport deleted successfully' });
+        res.redirect('/api/sports');
+        //res.status(200).json({ message: 'Sport deleted successfully' });
     } catch (e) {
         const code = res.statusCode ? res.statusCode : 422;
         res.status(code).json({errors: { body: [ 'Could not deleted Sport ', e.message ] }});

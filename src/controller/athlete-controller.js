@@ -169,6 +169,7 @@ const deleteAthlete = async (req, res) => {
 
         // Delete the Athlete in the db
         await Athlete.deleteOne(athlete);
+        //res.redirect('/api/athletes');
         res.status(200).json({ message: 'Athlete deleted successfully' });
     } catch (e) {
         const code = res.statusCode ? res.statusCode : 422;

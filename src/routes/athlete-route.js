@@ -6,6 +6,6 @@ router.get('/', AthleteController.getAll);                             // Get al
 router.get('/:id', AthleteController.getById);                     // Get Gender by ID
 router.post('/', AthleteController.save);                             // Get all Athletes
 router.put('/:id', AthleteController.update);                     // Get Gender by ID
-router.delete('/:id', AthleteController.deleteAthlete);                     // Get Gender by ID
+router.get('/:id/delete', AthleteController.deleteAthlete);                     // Get Gender by ID
 
 module.exports = router;
