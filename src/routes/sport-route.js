@@ -9,6 +9,6 @@ router.post('/', SportController.save);                          // Save a new S
 router.put('/:id', SportController.update);                      // Update an existing Sport
 router.patch('/:id/addAthlete', SportController.addAthlete);     // Add an athlete in  an existing Sport
 router.patch('/:id/removeAthlete', SportController.removeAthlete);  // Remove an athlete in  an existing Sport
-router.delete('/:id', SportController.deleteSport);              // Delete a Sport by ID
+router.get('/:id/delete', SportController.deleteSport);              // Delete a Sport by ID
 
 module.exports = router;
