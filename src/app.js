@@ -24,7 +24,7 @@ const athleteRoute = require('./routes/athlete-route');
 
 // Build the application that it'll use to create our routes
 const app = express();
-app.use(express.static('assets'));
+app.use(express.static('../assets'));
 app.use(session({
     secret:'flashblog',
     saveUninitialized: true,
