@@ -90,9 +90,9 @@ En option :
 
 ## Rendu attendu
 - [x] Code source sur un repo Git (sans le dossier node_modules 🙏)
-- [ ] ```README.md```
-- [ ] Instructions pour installer le projet (git clone, npm install, npm start, éventuels exemples de commande curl, ...)
-- [ ] Checklist des API et des fonctionnalités Web avec un statut des tests (OK ✅ ou KO ❌)
+- [x] ```README.md```
+- [x] Instructions pour installer le projet (git clone, npm install, npm start, éventuels exemples de commande curl, ...)
+- [x] Checklist des API et des fonctionnalités Web avec un statut des tests (OK ✅ ou KO ❌)
 
 
 ## Deadline 
